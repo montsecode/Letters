@@ -1,0 +1,62 @@
+package com.example.java;
+
+import java.util.*;
+
+public class Fase3 {
+
+    public static void main(String[] args) {
+        // instance
+        Scanner nominator = new Scanner(System.in);
+        String strName = null;
+        System.out.println("Enter your name : ");
+        strName = nominator.nextLine();
+        System.out.println("Your name is " + strName);
+
+        //String - ArrayList
+        ArrayList<Character> firstName = new ArrayList<>();
+        for (Character c : strName.toCharArray()) {
+            firstName.add(c);
+        }
+
+       //loop 
+        for (char c : firstName) {
+            String fName = Character.toString(c);
+            System.out.println(fName);
+        }
+
+        //declare a int variable for ArrayList size (a.k.a. number of char on it) to run the for i loop
+        int len = firstName.size();
+        int[] nameSize = new int[255];
+
+        for (int i = 0; i < len; i++) {
+            nameSize[firstName.get(i)]++;
+        }
+
+        char[] ch = new char[len];
+        for (int i = 0; i < len; i++) {
+            ch[i] = firstName.get(i);
+            int find = 0;
+            for (int j = 0; j <= i; j++) {
+                if (firstName.get(i) == ch[j])
+                    find++;
+            }
+            if (find == 1) {
+                System.out.println("Frequency of letter " + firstName.get(i) + " is " + nameSize[firstName.get(i)]);
+            }
+        }
+        //declare the map
+        Map<Character, Integer> ltMap = new HashMap<>();
+
+        //populate the map from the arrayList
+        for (int i = 0; i < len; i++) {
+
+            char ltName = firstName.get(i);
+            int ltIndex = nameSize[firstName.get(i)];
+
+            ltMap.put(ltName, ltIndex);
+            //System.out.println(ltMap);
+        }
+
+
+    }
+}

@@ -1,0 +1,25 @@
+  
+package com.example.java;
+
+public class Fase1 {
+
+    // main() method declaration
+
+    public static void main(String[] args) {
+
+        // array letters 
+        char[] name = {'M','o','n','t','s','e'};
+
+        //instantiation - String 
+        String nm1 = new String(name);
+        System.out.println(nm1);
+
+        // new array
+        char[] name2 = nm1.toCharArray();
+
+        //loop 
+        for (char a: name2) {
+            System.out.println(a);
+        }
+    }
+}
